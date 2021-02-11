@@ -1,0 +1,48 @@
+﻿@model WebSiteAPI.Models.Tide
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tide</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TideType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TideType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Attendance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Attendance)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TidesId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

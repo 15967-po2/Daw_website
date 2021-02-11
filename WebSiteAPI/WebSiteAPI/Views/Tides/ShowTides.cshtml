@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebSiteAPI.Models.ModelsAPI.Tide>
+    
+<h5>Selecione o dia: </h5>
+    <div class="input-group mb-3 w-25">
+        <select class="form-control form-control-lg" id="inputGroupSelect01">
+
+            <option selected>---Data---</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Day</option>
+            }
+        </select>
+    </div>
+
+
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Day)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TideType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Height)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.BeachId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CountyId)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TideType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Height)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.BeachId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CountyId)
+                        </td>*@
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

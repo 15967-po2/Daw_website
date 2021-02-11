@@ -1,6 +1,56 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@*@model IEnumerable<WebSiteAPI.Models.ModelsAPI.Tide>*@
 
-<p>Use this page to detail your site's privacy policy.</p>
+@{
+    ViewData["Title"] = "Privacy";
+}
+
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"> Lista de Marés</h2>
+        </div>
+    </div>
+
+    <select id="tides_select">
+        <option selected disabled>--Tides--</option>
+        @*@foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.Time</option>
+        }*@
+
+    </select>
+
+
+    <br /><br />
+
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Day
+                </th>
+                <th>
+                    Display Day
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td width="30%">"TidesId"</td>
+                <td width="50%">"Day"</td>
+                <td> </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    }
+
+
+
+
+</div>

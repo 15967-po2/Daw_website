@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebSiteAPI.Models.ModelsAPI.County>
+
+@{ViewData["Title"] = "ShowTides";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Marés</h1>
+
+<p>
+    <a asp-action="Create"></a>
+</p>
+
+<h5>Selecione o conselho: </h5>
+
+<form method="GET" asp-action="SeachCounty">
+    <select class="form-control form-control-lg w-25" id="county_select" name="county_select" onchange="getBeaches()">
+        <option selected disabled>--Counties--</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.CountyName</option>
+        }
+    </select>
+    <div id="beach_select_div">
+    </div>
+</form>
+
+<script>
+    function getBeaches() {
+        var selectedCounty = document.getElementById("county_select").value;
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("ShowBeach", "Tides")',
+            accepts: "/",
+            data: {
+                countyId: selectedCounty
+            },
+            success: function (data) {
+                $('#beach_select_div').html(data);
+            },
+            failure: function (response) {
+              console.log(response.responseText);
+            },
+        });
+        console.log(selectedCounty);
+    }
+</script>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

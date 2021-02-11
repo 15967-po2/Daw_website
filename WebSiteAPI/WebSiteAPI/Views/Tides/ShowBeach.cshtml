@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebSiteAPI.Models.ModelsAPI.Beach>
+
+    <h5>Selecione a Praia: </h5>
+
+<div class="input-group mb-3 w-25">
+    <select class="form-control form-control-lg"  id="inputGroupSelect01">
+
+        <option selected>---Praias---</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.BeachName</option>
+        }
+    </select>
+</div>
+
+
+<button id="1" type="button" class="btn btn-outline-secondary" onclick="getTides()">Confirmar</button>
+
+<div id="type_select_div"
+     ></div>
+
+<script>
+    function getTides() {
+        var selectedBeach = document.getElementById("inputGroupSelect01").value;
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("ShowTides", "Tides")',
+            accepts: "/",
+            data: {
+                beachId: selectedBeach
+            },
+            success: function (data) {
+                $('#type_select_div').html(data);
+            },
+            failure: function (response) {
+              console.log(response.responseText);
+            },
+        });
+        console.log(selectedBeach);
+    }
+</script>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BeachName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountyId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeachName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountyId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

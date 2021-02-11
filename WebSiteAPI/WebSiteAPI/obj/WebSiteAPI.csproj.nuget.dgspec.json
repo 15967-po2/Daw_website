@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nuno\\source\\repos\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj": {}
+    "C:\\daw_website\\Daw_website\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nuno\\source\\repos\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj": {
+    "C:\\daw_website\\Daw_website\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nuno\\source\\repos\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj",
+        "projectUniqueName": "C:\\daw_website\\Daw_website\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj",
         "projectName": "WebSiteAPI",
-        "projectPath": "C:\\Users\\Nuno\\source\\repos\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj",
+        "projectPath": "C:\\daw_website\\Daw_website\\WebSiteAPI\\WebSiteAPI\\WebSiteAPI.csproj",
         "packagesPath": "C:\\Users\\Nuno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nuno\\source\\repos\\WebSiteAPI\\WebSiteAPI\\obj\\",
+        "outputPath": "C:\\daw_website\\Daw_website\\WebSiteAPI\\WebSiteAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nuno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,9 +54,23 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "System.Text.Json": {
               "target": "Package",
               "version": "[5.0.1, )"
             }
