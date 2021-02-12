@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<WebSiteAPI.Models.ModelsAPI.Tide>
-    
-<h5>Selecione o dia: </h5>
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+@*<h5>Selecione o dia: </h5>
     <div class="input-group mb-3 w-25">
         <select class="form-control form-control-lg" id="inputGroupSelect01">
 
@@ -10,65 +12,116 @@
                 <option value="@item.Id">@item.Day</option>
             }
         </select>
-    </div>
+    </div>*@
 
 
 
-    <p>
+@*<p>
         <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
+    </p>*@
+<br>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TideType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                Attendance
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.BeachId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountyId)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Day)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TideType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Time)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Height)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.BeachId)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CountyId)
-                    </th>*@
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Day)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TideType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+
+                <td>
+                    <input id="btnT" type="checkbox" data-toggle="toggle" data-size="xs" data-onstyle="success" name="btn_toggle" onchange="add_attendance_input(@item.Id)">
+                </td>
+
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.BeachId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TideType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Time)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Height)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.BeachId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CountyId)
-                        </td>*@
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                        @Html.DisplayFor(modelItem => item.CountyId)
+                    </td>*@
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                         @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function add_attendance_input(item_id) {
+        console.log("Tide clicked->" + item_id);
+         $.ajax({
+            type: "POST",
+            url: '@Url.Action("addTideAttendance")',
+            accepts: "/",
+            data: {
+                tideId: item_id
+            },
+             success: function (data) {
+                 console.log("Adicionado");
+            },
+            failure: function (response) {
+              console.log(response.responseText);
+            },
+        });
+    }
+
+    @*"<div class='form-group'>
+    " +
+    "<div class='row'>
+        " +
+        "<div class='col'>
+            " +
+            "<input id='" + inputsAmount + "' name='iteminput' class='form-control' type='text' placeholder='Add new Item' onkeyup='getClosestProducts(this.id)' />" +
+            "
+        </div>" +
+        "<div class='col-1'>
+            " +
+            "<button class='btn btn-danger' type='button' onclick='deleteInput(" + inputsAmount + ")'>Delete</button>" +
+            "
+        </div>" +
+        "<datalist id='data" + inputsAmount +"'><option>ayeara</option></datalist>" +
+        "
+    </div>" +
+    "
+</div>";*@
+</script>

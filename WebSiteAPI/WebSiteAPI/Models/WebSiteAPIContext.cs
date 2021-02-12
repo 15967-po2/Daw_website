@@ -157,6 +157,8 @@ namespace WebSiteAPI.Models
                 entity.HasKey(e => e.UserTidesId)
                     .HasName("PK__User_Tid__794CCEA602A6E043");
 
+                entity.Property(e => e.UserTidesId).ValueGeneratedOnAdd();
+
                 entity.ToTable("User_Tides");
 
                 entity.Property(e => e.UserTidesId)

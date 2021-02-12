@@ -13,6 +13,11 @@
     </select>
 </div>
 
+<h5>Selecione o dia: </h5>
+<div class="input-group mb-3 w-25">
+    <input id="data_btn" type="date" />
+</div>
+
 
 <button id="1" type="button" class="btn btn-outline-secondary" onclick="getTides()">Confirmar</button>
 
@@ -22,12 +27,14 @@
 <script>
     function getTides() {
         var selectedBeach = document.getElementById("inputGroupSelect01").value;
+        var date = document.getElementById("data_btn").value;
         $.ajax({
             type: "GET",
             url: '@Url.Action("ShowTides", "Tides")',
             accepts: "/",
             data: {
-                beachId: selectedBeach
+                beachId: selectedBeach,
+                date: date
             },
             success: function (data) {
                 $('#type_select_div').html(data);

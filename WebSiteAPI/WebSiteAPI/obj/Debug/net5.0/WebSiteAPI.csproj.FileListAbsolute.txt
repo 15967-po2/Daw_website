@@ -272,8 +272,9 @@ C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Us
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\UserTides\Details.cshtml.g.cs
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\UserTides\Edit.cshtml.g.cs
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\UserTides\Index.cshtml.g.cs
-C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Home\EditarMares.cshtml.g.cs
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\bin\Debug\net5.0\System.Text.Json.dll
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Tides\ShowCounty.cshtml.g.cs
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Tides\ShowBeach.cshtml.g.cs
 C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Tides\ShowTides.cshtml.g.cs
+C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\bin\Debug\net5.0\libman.json
+C:\daw_website\Daw_website\WebSiteAPI\WebSiteAPI\obj\Debug\net5.0\Razor\Views\Home\AdminTools.cshtml.g.cs
